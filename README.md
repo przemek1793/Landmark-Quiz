@@ -1,1 +1,1 @@
-PictureQuiz
+Landmark Quiz
