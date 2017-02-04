@@ -1,0 +1,12 @@
+<resources>
+
+    <string name="app_name">Landmark Quiz</string>
+
+    <!-- MainActivity -->
+    <string name="AppName">Landmark Quiz</string>
+    <string name="Mode1">Play with only manmade landmarks</string>
+    <string name="Mode2">All landmarks</string>
+    <string name="Highscore">Highscores</string>
+    <string name="Information">App information</string>
+
+</resources>
