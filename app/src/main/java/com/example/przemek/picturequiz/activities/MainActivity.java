@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
         final View view=findViewById(R.id.activity_main);
 
+        //setting buttons in linearview to the same height
         view.post(new Runnable() {
             @Override
             public void run() {
