@@ -16,7 +16,7 @@ public class LandmarkDatabaseHandler extends SQLiteOpenHelper
     private static String DB_NAME = "LandmarkDB";
     private static final int DB_VERSION = 1;
     private SQLiteDatabase LandmarkDB;
-    private static final String TABLE_COMMENTS = "QuestionTable";
+    private static final String TABLE_NAME = "QuestionTable";
     public static final String COLUMN_ID = "_id";
     public static final String COLUMN_PICTURE = "PICTURE";
     public static final String COLUMN_ANSWER1 = "ANSWER1";
@@ -27,7 +27,7 @@ public class LandmarkDatabaseHandler extends SQLiteOpenHelper
 
     //database creation statement
     private static final String DATABASE_CREATE = "create table "
-            + TABLE_COMMENTS + "( " + COLUMN_ID
+            + TABLE_NAME + "( " + COLUMN_ID
             + " integer primary key autoincrement, " + COLUMN_PICTURE
             + " text not null, " + COLUMN_ANSWER1
             + " text not null, " + COLUMN_ANSWER2
@@ -36,8 +36,8 @@ public class LandmarkDatabaseHandler extends SQLiteOpenHelper
             + " text not null, " + COLUMN_CORRECTANSWER
             + " text not null);";
 
-    public LandmarkDatabaseHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, name, factory, version);
+    public LandmarkDatabaseHandler(Context context) {
+        super(context, DB_NAME, null, DB_VERSION);
     }
 
     @Override
@@ -50,7 +50,7 @@ public class LandmarkDatabaseHandler extends SQLiteOpenHelper
         Log.w(LandmarkDatabaseHandler.class.getName(),
                 "Upgrading database from version " + oldVersion + " to "
                         + newVersion + ", which will destroy all old data");
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_COMMENTS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
     }
 }
