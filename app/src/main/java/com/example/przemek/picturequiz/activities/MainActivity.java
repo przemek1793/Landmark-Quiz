@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import com.example.przemek.picturequiz.R;
-import com.example.przemek.picturequiz.database.DatabaseEntry;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,7 +13,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         final View view=findViewById(R.id.activity_main);
 
         //setting buttons in linearview to the same height
