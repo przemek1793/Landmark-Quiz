@@ -16,8 +16,53 @@
             android:layout_width="wrap_content"
             style="@style/GeneralTextStyle"
             android:layout_height="wrap_content"
-            android:id="@+id/AppName"
-            android:text="Man Made only landmarks">
+            android:id="@+id/Picture"
+            android:text="Picturetest">
+    </TextView>
+
+    <TextView
+            android:layout_width="wrap_content"
+            style="@style/GeneralTextStyle"
+            android:layout_height="wrap_content"
+            android:id="@+id/Answer1"
+            android:text="Answer1test"
+            android:layout_below="@+id/Picture">
+    </TextView>
+
+    <TextView
+            android:layout_width="wrap_content"
+            style="@style/GeneralTextStyle"
+            android:layout_height="wrap_content"
+            android:id="@+id/Answer2"
+            android:text="Answer2test"
+            android:layout_below="@+id/Answer1">
+    </TextView>
+
+    <TextView
+            android:layout_width="wrap_content"
+            style="@style/GeneralTextStyle"
+            android:layout_height="wrap_content"
+            android:id="@+id/Answer3"
+            android:text="Answer3test"
+            android:layout_below="@+id/Answer2">
+    </TextView>
+
+    <TextView
+            android:layout_width="wrap_content"
+            style="@style/GeneralTextStyle"
+            android:layout_height="wrap_content"
+            android:id="@+id/Answer4"
+            android:text="Answer4test"
+            android:layout_below="@+id/Answer3">
+    </TextView>
+
+    <TextView
+            android:layout_width="wrap_content"
+            style="@style/GeneralTextStyle"
+            android:layout_height="wrap_content"
+            android:id="@+id/CorrectAnswer"
+            android:text="Correct answertest"
+            android:layout_below="@+id/Answer4">
     </TextView>
 
 </RelativeLayout>

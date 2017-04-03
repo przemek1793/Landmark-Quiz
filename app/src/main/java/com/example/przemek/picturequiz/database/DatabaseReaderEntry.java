@@ -12,7 +12,7 @@ public final class DatabaseReaderEntry {
 
     /* Inner class that defines the table contents */
     public static class DatabaseEntry implements BaseColumns {
-        private static final String TABLE_NAME = "QuestionTable";
+        public static final String TABLE_NAME = "QuestionTable";
         public static final String COLUMN_ID = "_id";
         public static final String COLUMN_PICTURE = "PICTURE";
         public static final String COLUMN_ANSWER1 = "ANSWER1";

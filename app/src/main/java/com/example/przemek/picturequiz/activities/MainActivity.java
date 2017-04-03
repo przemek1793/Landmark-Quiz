@@ -1,11 +1,15 @@
 package com.example.przemek.picturequiz.activities;
 
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import com.example.przemek.picturequiz.R;
+import com.example.przemek.picturequiz.database.DatabaseReaderEntry;
+import com.example.przemek.picturequiz.database.LandmarkDatabaseHandler;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,6 +18,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         final View view=findViewById(R.id.activity_main);
+
+        //Testing whether database is working
+        LandmarkDatabaseHandler DBhelper = new LandmarkDatabaseHandler(getApplicationContext());
+        SQLiteDatabase db = DBhelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_PICTURE, "obraz");
+        values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER1, "odp1");
+        values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER2, "odp2");
+        values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER3, "odp3");
+        values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER4, "odp4");
+        values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_CORRECTANSWER, "dobra odpowiedz");
+        long newRowId = db.insert(DatabaseReaderEntry.DatabaseEntry.TABLE_NAME, null, values);
 
         //setting buttons in linearview to the same height
         view.post(new Runnable() {
