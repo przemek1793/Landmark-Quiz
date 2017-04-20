@@ -11,13 +11,28 @@ import com.example.przemek.picturequiz.database.LandmarkDatabaseHandler;
 
 public class ManMadeOnlyActivity extends AppCompatActivity {
 
+    String correctAnswer="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_man_made_only);
+        showRandomRow();
+    }
+
+    protected void showRandomRow ()
+    {
         LandmarkDatabaseHandler db = new LandmarkDatabaseHandler(getApplicationContext());
         String row[]=db.getRandomRow();
-        TextView text=(TextView)findViewById(R.id.Picture);
-        text.setText(row[2]);
+        correctAnswer=row[0];
+        TextView picture=(TextView)findViewById(R.id.Picture);
+        picture.setText(row[1]);
+        TextView answer1=(TextView)findViewById(R.id.Answer1);
+        answer1.setText(row[2]);
+        TextView answer2=(TextView)findViewById(R.id.Answer2);
+        answer2.setText(row[3]);
+        TextView answer3=(TextView)findViewById(R.id.Answer3);
+        answer3.setText(row[4]);
+        TextView answer4=(TextView)findViewById(R.id.Answer4);
+        answer4.setText(row[5]);
     }
 }
