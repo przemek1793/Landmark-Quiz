@@ -10,4 +10,9 @@
     <dimen name="ButtonTextSize">16dp</dimen>
     <dimen name="AppName_Vertical_margin">15dp</dimen>
     <dimen name="Vertical_margin">70dp</dimen>
+
+
+    <!-- ManMadeOnly-->
+    <dimen name="man_made_horizontal_margin">16dp</dimen>
+    <dimen name="man_made_vertical_margin">16dp</dimen>
 </resources>

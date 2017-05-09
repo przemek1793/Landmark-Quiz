@@ -17,7 +17,9 @@
             style="@style/GeneralTextStyle"
             android:layout_height="wrap_content"
             android:id="@+id/Picture"
-            android:text="Picturetest">
+            android:text="Picturetest"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/man_made_vertical_margin">
     </ImageView>
 
     <TextView
@@ -25,7 +27,9 @@
             style="@style/GeneralTextStyle"
             android:layout_height="wrap_content"
             android:id="@+id/Answer1"
-            android:layout_below="@+id/Picture">
+            android:layout_below="@+id/Picture"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/man_made_vertical_margin">
     </TextView>
 
     <TextView
@@ -33,7 +37,9 @@
             style="@style/GeneralTextStyle"
             android:layout_height="wrap_content"
             android:id="@+id/Answer2"
-            android:layout_below="@+id/Answer1">
+            android:layout_below="@+id/Answer1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/man_made_vertical_margin">
     </TextView>
 
     <TextView
@@ -41,7 +47,9 @@
             style="@style/GeneralTextStyle"
             android:layout_height="wrap_content"
             android:id="@+id/Answer3"
-            android:layout_below="@+id/Answer2">
+            android:layout_below="@+id/Answer2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/man_made_vertical_margin">
     </TextView>
 
     <TextView
@@ -49,7 +57,9 @@
             style="@style/GeneralTextStyle"
             android:layout_height="wrap_content"
             android:id="@+id/Answer4"
-            android:layout_below="@+id/Answer3">
+            android:layout_below="@+id/Answer3"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/man_made_vertical_margin">
     </TextView>
 
 </RelativeLayout>

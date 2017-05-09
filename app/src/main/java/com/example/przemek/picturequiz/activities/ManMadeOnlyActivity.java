@@ -49,21 +49,21 @@ public class ManMadeOnlyActivity extends AppCompatActivity {
         answer4.setText(row[5]);
     }
 
-    class GetImageFromURL extends AsyncTask<String, Void, Drawable> {
+    class GetImageFromURL extends AsyncTask<String, Void, Bitmap> {
 
-        protected Drawable doInBackground(String... url) {
+        protected Bitmap doInBackground(String... url) {
             try {
                 InputStream is = (InputStream) new URL(url[0]).getContent();
-                Drawable image = Drawable.createFromStream(is, "src name");
+                Bitmap image = BitmapFactory.decodeStream(is);
                 return image;
             } catch (Exception e) {
                 return null;
             }
         }
 
-        protected void onPostExecute(Drawable image) {
+        protected void onPostExecute(Bitmap image) {
             ImageView picture=(ImageView)findViewById(R.id.Picture);
-            picture.setImageDrawable(image);
+            picture.setImageBitmap(image);
         }
     }
 }
