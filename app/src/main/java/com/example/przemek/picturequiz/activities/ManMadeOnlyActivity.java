@@ -2,12 +2,26 @@ package com.example.przemek.picturequiz.activities;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 import com.example.przemek.picturequiz.R;
 import com.example.przemek.picturequiz.database.DatabaseReaderEntry;
 import com.example.przemek.picturequiz.database.LandmarkDatabaseHandler;
+import org.xml.sax.InputSource;
+import org.xml.sax.XMLReader;
+
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class ManMadeOnlyActivity extends AppCompatActivity {
 
@@ -24,8 +38,7 @@ public class ManMadeOnlyActivity extends AppCompatActivity {
         LandmarkDatabaseHandler db = new LandmarkDatabaseHandler(getApplicationContext());
         String row[]=db.getRandomRow();
         correctAnswer=row[0];
-        TextView picture=(TextView)findViewById(R.id.Picture);
-        picture.setText(row[1]);
+        new GetImageFromURL().execute(row[1]);
         TextView answer1=(TextView)findViewById(R.id.Answer1);
         answer1.setText(row[2]);
         TextView answer2=(TextView)findViewById(R.id.Answer2);
@@ -34,5 +47,23 @@ public class ManMadeOnlyActivity extends AppCompatActivity {
         answer3.setText(row[4]);
         TextView answer4=(TextView)findViewById(R.id.Answer4);
         answer4.setText(row[5]);
+    }
+
+    class GetImageFromURL extends AsyncTask<String, Void, Drawable> {
+
+        protected Drawable doInBackground(String... url) {
+            try {
+                InputStream is = (InputStream) new URL(url[0]).getContent();
+                Drawable image = Drawable.createFromStream(is, "src name");
+                return image;
+            } catch (Exception e) {
+                return null;
+            }
+        }
+
+        protected void onPostExecute(Drawable image) {
+            ImageView picture=(ImageView)findViewById(R.id.Picture);
+            picture.setImageDrawable(image);
+        }
     }
 }

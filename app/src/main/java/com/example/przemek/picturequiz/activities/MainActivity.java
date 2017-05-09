@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         LandmarkDatabaseHandler DBhelper = new LandmarkDatabaseHandler(getApplicationContext());
         SQLiteDatabase db = DBhelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_PICTURE, "obraz");
+        values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_PICTURE, "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Avignon%2C_Palais_des_Papes_depuis_Tour_Philippe_le_Bel_by_JM_Rosier.jpg/1200px-Avignon%2C_Palais_des_Papes_depuis_Tour_Philippe_le_Bel_by_JM_Rosier.jpg");
         values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER1, "odp1");
         values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER2, "odp2");
         values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER3, "odp3");

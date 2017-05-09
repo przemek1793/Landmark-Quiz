@@ -13,6 +13,10 @@ import static com.example.przemek.picturequiz.database.DatabaseReaderEntry.SQL_D
  * Created by Przemek on 05.02.2017.
  */
 
+/**
+ * Url to image in database instead of image
+ */
+
 public class LandmarkDatabaseHandler extends SQLiteOpenHelper
 {
 
