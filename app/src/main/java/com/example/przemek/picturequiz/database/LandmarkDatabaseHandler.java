@@ -69,7 +69,7 @@ public class LandmarkDatabaseHandler extends SQLiteOpenHelper
     public String[] getRandomRow() {
 
         final String TABLE_NAME = "QuestionTable";
-        String selectQuery = "SELECT * FROM " + TABLE_NAME + " ORDER BY RANDOM();"; // select random row from database
+        String selectQuery = "SELECT * FROM " + TABLE_NAME + " WHERE ALREADY_USED=0 ORDER BY RANDOM();"; // select random row from database
         SQLiteDatabase db  = this.getReadableDatabase();
         Cursor cursor      = db.rawQuery(selectQuery, null);
         String [] answer= new String[cursor.getColumnCount()];
