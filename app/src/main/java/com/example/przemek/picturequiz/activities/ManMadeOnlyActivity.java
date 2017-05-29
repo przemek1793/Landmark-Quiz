@@ -54,6 +54,7 @@ public class ManMadeOnlyActivity extends AppCompatActivity {
         answer3.setText(row[4]);
         TextView answer4=(TextView)findViewById(R.id.Answer4);
         answer4.setText(row[5]);
+        db.markAsUsed(row[0]);
     }
 
     class GetImageFromURL extends AsyncTask<String, Void, Bitmap> {

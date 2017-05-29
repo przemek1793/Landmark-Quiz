@@ -83,33 +83,10 @@ public class LandmarkDatabaseHandler extends SQLiteOpenHelper
         return answer;
     }
 
-    public void checkIfEmpty ()
+    public void markAsUsed (String id)
     {
-        SQLiteDatabase db = this.getWritableDatabase();
-        String count = "SELECT count(*) FROM table";
-        Cursor mcursor = db.rawQuery(count, null);
-        mcursor.moveToFirst();
-        int icount = mcursor.getInt(0);
-        if(!(icount>0))
-        {
-            ContentValues values = new ContentValues();
-            values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_PICTURE, "http://i1-news.softpedia-static.com/images/news2/Thief-Steals-the-Keys-to-the-Tower-of-London-on-Guy-Fawkes-Night-2.jpg?1352724076");
-            values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER1, "Anglia");
-            values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER2, "Francja");
-            values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER3, "Hiszpania");
-            values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER4, "Polska");
-            values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_CORRECTANSWER, 1);
-            values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ALREADY_USED, 0);
-            db.insert(DatabaseReaderEntry.DatabaseEntry.TABLE_NAME, null, values);
-
-            values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_PICTURE, "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Wawel2.jpg/1200px-Wawel2.jpg");
-            values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER1, "Hiszpania");
-            values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER2, "Albania");
-            values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER3, "Polska");
-            values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER4, "Francja");
-            values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_CORRECTANSWER, 3);
-            values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ALREADY_USED, 0);
-            db.insert(DatabaseReaderEntry.DatabaseEntry.TABLE_NAME, null, values);
-        }
+        String strSQL = "UPDATE "+ DatabaseReaderEntry.DatabaseEntry.TABLE_NAME+" SET "+DatabaseReaderEntry.DatabaseEntry.COLUMN_ALREADY_USED+" = 1 where "
+                +DatabaseReaderEntry.DatabaseEntry.COLUMN_ID+ "="+id+ ";";
+        this.getReadableDatabase().execSQL(strSQL);
     }
 }
