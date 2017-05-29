@@ -19,6 +19,8 @@
         </activity>
         <activity android:name=".activities.ManMadeOnlyActivity">
         </activity>
+        <activity android:name=".activities.NoQuestionsActivity">
+        </activity>
     </application>
 
 </manifest>

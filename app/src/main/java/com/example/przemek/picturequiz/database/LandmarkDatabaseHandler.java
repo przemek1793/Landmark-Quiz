@@ -14,13 +14,6 @@ import static com.example.przemek.picturequiz.database.DatabaseReaderEntry.SQL_D
  * Created by Przemek on 05.02.2017.
  */
 
-/**
- * Url to image in database instead of image
- */
-
-/**
- * Todo check if table is empty nad if it is add new values
- */
 
 public class LandmarkDatabaseHandler extends SQLiteOpenHelper
 {
@@ -62,14 +55,19 @@ public class LandmarkDatabaseHandler extends SQLiteOpenHelper
         onCreate(db);
     }
 
+    public void refresh() {
+        SQLiteDatabase db  = this.getReadableDatabase();
+        db.execSQL(SQL_DELETE_ENTRIES);
+        onCreate(db);
+    }
+
     public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         onUpgrade(db, oldVersion, newVersion);
     }
 
-    public String[] getRandomRow() {
-
-        final String TABLE_NAME = "QuestionTable";
-        String selectQuery = "SELECT * FROM " + TABLE_NAME + " WHERE ALREADY_USED=0 ORDER BY RANDOM();"; // select random row from database
+    public String[] getRandomRow()
+    {
+        String selectQuery = "SELECT * FROM " + DatabaseReaderEntry.DatabaseEntry.TABLE_NAME + " WHERE ALREADY_USED=0 ORDER BY RANDOM();"; // select random row from database
         SQLiteDatabase db  = this.getReadableDatabase();
         Cursor cursor      = db.rawQuery(selectQuery, null);
         String [] answer= new String[cursor.getColumnCount()];
@@ -88,5 +86,15 @@ public class LandmarkDatabaseHandler extends SQLiteOpenHelper
         String strSQL = "UPDATE "+ DatabaseReaderEntry.DatabaseEntry.TABLE_NAME+" SET "+DatabaseReaderEntry.DatabaseEntry.COLUMN_ALREADY_USED+" = 1 where "
                 +DatabaseReaderEntry.DatabaseEntry.COLUMN_ID+ "="+id+ ";";
         this.getReadableDatabase().execSQL(strSQL);
+    }
+
+    public Boolean checkForUnusedQuestions ()
+    {
+        String selectQuery = "SELECT * FROM " + DatabaseReaderEntry.DatabaseEntry.TABLE_NAME + " WHERE ALREADY_USED=0 ORDER BY RANDOM();";
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        int cnt = cursor.getCount();
+        cursor.close();
+        return cnt>0;
     }
 }

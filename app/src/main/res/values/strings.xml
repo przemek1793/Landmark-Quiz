@@ -9,4 +9,9 @@
     <string name="Highscore">Highscores</string>
     <string name="Information">App information</string>
 
+
+    <!-- No questions -->
+    <string name="NoQuestions">There are no more questions</string>
+    <string name="Return">Return to menu</string>
+
 </resources>

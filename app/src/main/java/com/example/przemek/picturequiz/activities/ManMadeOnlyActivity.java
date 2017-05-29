@@ -29,6 +29,12 @@ import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+
+/**
+ * na wyjściu do menu resetuj baze
+ * po skończeniu się pytań daj jakiś ekran z wynikami czy coś
+ */
+
 public class ManMadeOnlyActivity extends AppCompatActivity {
 
     int correctAnswer=0;
@@ -81,105 +87,221 @@ public class ManMadeOnlyActivity extends AppCompatActivity {
      */
     public void answer1 (View view)
     {
-        final Intent intent = new Intent(this, ManMadeOnlyActivity.class);
-        TextView answer=(TextView)findViewById(R.id.Answer1);
-        if (correctAnswer==1)
+        LandmarkDatabaseHandler db = new LandmarkDatabaseHandler(getApplicationContext());
+        if (db.checkForUnusedQuestions())
         {
-            answer.setBackgroundResource(R.drawable.button_border_correct);
-            answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorGreen));
-            new Handler().postDelayed(new Runnable() {
-                public void run() {
-                    startActivity(intent);
-                }
-            }, 1000);
+            final Intent intent = new Intent(this, ManMadeOnlyActivity.class);
+            TextView answer=(TextView)findViewById(R.id.Answer1);
+            if (correctAnswer==1)
+            {
+                answer.setBackgroundResource(R.drawable.button_border_correct);
+                answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorGreen));
+                new Handler().postDelayed(new Runnable() {
+                    public void run() {
+                        startActivity(intent);
+                    }
+                }, 1000);
+            }
+            else
+            {
+                answer.setBackgroundResource(R.drawable.button_border_incorrect);
+                answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorRed));
+                new Handler().postDelayed(new Runnable() {
+                    public void run() {
+                        startActivity(intent);
+                    }
+                }, 1000);
+            }
         }
         else
         {
-            answer.setBackgroundResource(R.drawable.button_border_incorrect);
-            answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorRed));
-            new Handler().postDelayed(new Runnable() {
-                public void run() {
-                    startActivity(intent);
-                }
-            }, 1000);
+            final Intent intent = new Intent(this, NoQuestionsActivity.class); //will lead to "u finished all questions screen"
+            TextView answer=(TextView)findViewById(R.id.Answer1);
+            if (correctAnswer==1)
+            {
+                answer.setBackgroundResource(R.drawable.button_border_correct);
+                answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorGreen));
+                new Handler().postDelayed(new Runnable() {
+                    public void run() {
+                        startActivity(intent);
+                    }
+                }, 1000);
+            }
+            else
+            {
+                answer.setBackgroundResource(R.drawable.button_border_incorrect);
+                answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorRed));
+                new Handler().postDelayed(new Runnable() {
+                    public void run() {
+                        startActivity(intent);
+                    }
+                }, 1000);
+            }
         }
     }
 
     public void answer2 (View view)
     {
-        final Intent intent = new Intent(this, ManMadeOnlyActivity.class);
-        TextView answer=(TextView)findViewById(R.id.Answer2);
-        if (correctAnswer==2)
+        LandmarkDatabaseHandler db = new LandmarkDatabaseHandler(getApplicationContext());
+        if (db.checkForUnusedQuestions())
         {
-            answer.setBackgroundResource(R.drawable.button_border_correct);
-            answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorGreen));
-            new Handler().postDelayed(new Runnable() {
-                public void run() {
-                    startActivity(intent);
-                }
-            }, 1000);
+            final Intent intent = new Intent(this, ManMadeOnlyActivity.class);
+            TextView answer=(TextView)findViewById(R.id.Answer2);
+            if (correctAnswer==2)
+            {
+                answer.setBackgroundResource(R.drawable.button_border_correct);
+                answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorGreen));
+                new Handler().postDelayed(new Runnable() {
+                    public void run() {
+                        startActivity(intent);
+                    }
+                }, 1000);
+            }
+            else
+            {
+                answer.setBackgroundResource(R.drawable.button_border_incorrect);
+                answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorRed));
+                new Handler().postDelayed(new Runnable() {
+                    public void run() {
+                        startActivity(intent);
+                    }
+                }, 1000);
+            }
         }
         else
         {
-            answer.setBackgroundResource(R.drawable.button_border_incorrect);
-            answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorRed));
-            new Handler().postDelayed(new Runnable() {
-                public void run() {
-                    startActivity(intent);
-                }
-            }, 1000);
+            final Intent intent = new Intent(this, NoQuestionsActivity.class); //will lead to "u finished all questions screen"
+            TextView answer=(TextView)findViewById(R.id.Answer2);
+            if (correctAnswer==2)
+            {
+                answer.setBackgroundResource(R.drawable.button_border_correct);
+                answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorGreen));
+                new Handler().postDelayed(new Runnable() {
+                    public void run() {
+                        startActivity(intent);
+                    }
+                }, 1000);
+            }
+            else
+            {
+                answer.setBackgroundResource(R.drawable.button_border_incorrect);
+                answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorRed));
+                new Handler().postDelayed(new Runnable() {
+                    public void run() {
+                        startActivity(intent);
+                    }
+                }, 1000);
+            }
         }
     }
 
     public void answer3 (View view)
     {
-        final Intent intent = new Intent(this, ManMadeOnlyActivity.class);
-        TextView answer=(TextView)findViewById(R.id.Answer3);
-        if (correctAnswer==3)
+        LandmarkDatabaseHandler db = new LandmarkDatabaseHandler(getApplicationContext());
+        if (db.checkForUnusedQuestions())
         {
-            answer.setBackgroundResource(R.drawable.button_border_correct);
-            answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorGreen));
-            new Handler().postDelayed(new Runnable() {
-                public void run() {
-                    startActivity(intent);
-                }
-            }, 1000);
+            final Intent intent = new Intent(this, ManMadeOnlyActivity.class);
+            TextView answer=(TextView)findViewById(R.id.Answer3);
+            if (correctAnswer==3)
+            {
+                answer.setBackgroundResource(R.drawable.button_border_correct);
+                answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorGreen));
+                new Handler().postDelayed(new Runnable() {
+                    public void run() {
+                        startActivity(intent);
+                    }
+                }, 1000);
+            }
+            else
+            {
+                answer.setBackgroundResource(R.drawable.button_border_incorrect);
+                answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorRed));
+                new Handler().postDelayed(new Runnable() {
+                    public void run() {
+                        startActivity(intent);
+                    }
+                }, 1000);
+            }
         }
         else
         {
-            answer.setBackgroundResource(R.drawable.button_border_incorrect);
-            answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorRed));
-            new Handler().postDelayed(new Runnable() {
-                public void run() {
-                    startActivity(intent);
-                }
-            }, 1000);
+            final Intent intent = new Intent(this, NoQuestionsActivity.class); //will lead to "u finished all questions screen"
+            TextView answer=(TextView)findViewById(R.id.Answer3);
+            if (correctAnswer==3)
+            {
+                answer.setBackgroundResource(R.drawable.button_border_correct);
+                answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorGreen));
+                new Handler().postDelayed(new Runnable() {
+                    public void run() {
+                        startActivity(intent);
+                    }
+                }, 1000);
+            }
+            else
+            {
+                answer.setBackgroundResource(R.drawable.button_border_incorrect);
+                answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorRed));
+                new Handler().postDelayed(new Runnable() {
+                    public void run() {
+                        startActivity(intent);
+                    }
+                }, 1000);
+            }
         }
     }
 
     public void answer4 (View view)
     {
-        final Intent intent = new Intent(this, ManMadeOnlyActivity.class);
-        TextView answer=(TextView)findViewById(R.id.Answer4);
-        if (correctAnswer==4)
+        LandmarkDatabaseHandler db = new LandmarkDatabaseHandler(getApplicationContext());
+        if (db.checkForUnusedQuestions())
         {
-            answer.setBackgroundResource(R.drawable.button_border_correct);
-            answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorGreen));
-            new Handler().postDelayed(new Runnable() {
-                public void run() {
-                    startActivity(intent);
-                }
-            }, 1000);
+            final Intent intent = new Intent(this, ManMadeOnlyActivity.class);
+            TextView answer=(TextView)findViewById(R.id.Answer4);
+            if (correctAnswer==4)
+            {
+                answer.setBackgroundResource(R.drawable.button_border_correct);
+                answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorGreen));
+                new Handler().postDelayed(new Runnable() {
+                    public void run() {
+                        startActivity(intent);
+                    }
+                }, 1000);
+            }
+            else
+            {
+                answer.setBackgroundResource(R.drawable.button_border_incorrect);
+                answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorRed));
+                new Handler().postDelayed(new Runnable() {
+                    public void run() {
+                        startActivity(intent);
+                    }
+                }, 1000);
+            }
         }
         else
         {
-            answer.setBackgroundResource(R.drawable.button_border_incorrect);
-            answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorRed));
-            new Handler().postDelayed(new Runnable() {
-                public void run() {
-                    startActivity(intent);
-                }
-            }, 1000);
+            final Intent intent = new Intent(this, NoQuestionsActivity.class); //will lead to "u finished all questions screen"
+            TextView answer=(TextView)findViewById(R.id.Answer4);
+            if (correctAnswer==4)
+            {
+                answer.setBackgroundResource(R.drawable.button_border_correct);
+                answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorGreen));
+                new Handler().postDelayed(new Runnable() {
+                    public void run() {
+                        startActivity(intent);
+                    }
+                }, 1000);
+            }
+            else
+            {
+                answer.setBackgroundResource(R.drawable.button_border_incorrect);
+                answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorRed));
+                new Handler().postDelayed(new Runnable() {
+                    public void run() {
+                        startActivity(intent);
+                    }
+                }, 1000);
+            }
         }
     }
 }

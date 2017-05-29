@@ -39,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void manMadeOnly (View view)
     {
+        LandmarkDatabaseHandler db = new LandmarkDatabaseHandler(getApplicationContext());
+        db.refresh();
         Intent intent = new Intent(this, ManMadeOnlyActivity.class);
         startActivity(intent);
     }
