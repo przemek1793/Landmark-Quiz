@@ -19,18 +19,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         final View view=findViewById(R.id.activity_main);
 
-        //Testing whether database is working
-        LandmarkDatabaseHandler DBhelper = new LandmarkDatabaseHandler(getApplicationContext());
-        SQLiteDatabase db = DBhelper.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_PICTURE, "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Avignon%2C_Palais_des_Papes_depuis_Tour_Philippe_le_Bel_by_JM_Rosier.jpg/1200px-Avignon%2C_Palais_des_Papes_depuis_Tour_Philippe_le_Bel_by_JM_Rosier.jpg");
-        values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER1, "odp1");
-        values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER2, "odp2");
-        values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER3, "odp3");
-        values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER4, "odp4");
-        values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_CORRECTANSWER, "dobra odpowiedz");
-        long newRowId = db.insert(DatabaseReaderEntry.DatabaseEntry.TABLE_NAME, null, values);
-
         //setting buttons in linearview to the same height
         view.post(new Runnable() {
             @Override

@@ -1,5 +1,6 @@
 package com.example.przemek.picturequiz.database;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -17,6 +18,10 @@ import static com.example.przemek.picturequiz.database.DatabaseReaderEntry.SQL_D
  * Url to image in database instead of image
  */
 
+/**
+ * Todo check if table is empty nad if it is add new values
+ */
+
 public class LandmarkDatabaseHandler extends SQLiteOpenHelper
 {
 
@@ -28,8 +33,28 @@ public class LandmarkDatabaseHandler extends SQLiteOpenHelper
         super(context, DB_NAME, null, DB_VERSION);
     }
 
-    public void onCreate(SQLiteDatabase db) {
+    public void onCreate(SQLiteDatabase db)
+    {
         db.execSQL(SQL_CREATE_ENTRIES);
+
+        ContentValues values = new ContentValues();
+        values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_PICTURE, "http://i1-news.softpedia-static.com/images/news2/Thief-Steals-the-Keys-to-the-Tower-of-London-on-Guy-Fawkes-Night-2.jpg?1352724076");
+        values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER1, "Anglia");
+        values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER2, "Francja");
+        values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER3, "Hiszpania");
+        values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER4, "Polska");
+        values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_CORRECTANSWER, 1);
+        values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ALREADY_USED, 0);
+        db.insert(DatabaseReaderEntry.DatabaseEntry.TABLE_NAME, null, values);
+
+        values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_PICTURE, "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Wawel2.jpg/1200px-Wawel2.jpg");
+        values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER1, "Hiszpania");
+        values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER2, "Albania");
+        values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER3, "Polska");
+        values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER4, "Francja");
+        values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_CORRECTANSWER, 3);
+        values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ALREADY_USED, 0);
+        db.insert(DatabaseReaderEntry.DatabaseEntry.TABLE_NAME, null, values);
     }
 
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -44,7 +69,7 @@ public class LandmarkDatabaseHandler extends SQLiteOpenHelper
     public String[] getRandomRow() {
 
         final String TABLE_NAME = "QuestionTable";
-        String selectQuery = "SELECT * FROM " + TABLE_NAME + " ORDER BY RANDOM() LIMIT 1;"; // select random row from database
+        String selectQuery = "SELECT * FROM " + TABLE_NAME + " ORDER BY RANDOM();"; // select random row from database
         SQLiteDatabase db  = this.getReadableDatabase();
         Cursor cursor      = db.rawQuery(selectQuery, null);
         String [] answer= new String[cursor.getColumnCount()];
@@ -58,4 +83,33 @@ public class LandmarkDatabaseHandler extends SQLiteOpenHelper
         return answer;
     }
 
+    public void checkIfEmpty ()
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String count = "SELECT count(*) FROM table";
+        Cursor mcursor = db.rawQuery(count, null);
+        mcursor.moveToFirst();
+        int icount = mcursor.getInt(0);
+        if(!(icount>0))
+        {
+            ContentValues values = new ContentValues();
+            values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_PICTURE, "http://i1-news.softpedia-static.com/images/news2/Thief-Steals-the-Keys-to-the-Tower-of-London-on-Guy-Fawkes-Night-2.jpg?1352724076");
+            values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER1, "Anglia");
+            values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER2, "Francja");
+            values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER3, "Hiszpania");
+            values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER4, "Polska");
+            values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_CORRECTANSWER, 1);
+            values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ALREADY_USED, 0);
+            db.insert(DatabaseReaderEntry.DatabaseEntry.TABLE_NAME, null, values);
+
+            values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_PICTURE, "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Wawel2.jpg/1200px-Wawel2.jpg");
+            values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER1, "Hiszpania");
+            values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER2, "Albania");
+            values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER3, "Polska");
+            values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER4, "Francja");
+            values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_CORRECTANSWER, 3);
+            values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ALREADY_USED, 0);
+            db.insert(DatabaseReaderEntry.DatabaseEntry.TABLE_NAME, null, values);
+        }
+    }
 }

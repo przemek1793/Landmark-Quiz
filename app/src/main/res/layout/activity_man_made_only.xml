@@ -29,7 +29,9 @@
             android:id="@+id/Answer1"
             android:layout_below="@+id/Picture"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/man_made_vertical_margin">
+            android:layout_marginTop="@dimen/man_made_vertical_margin"
+            android:onClick="answer1"
+    >
     </TextView>
 
     <TextView
@@ -39,7 +41,9 @@
             android:id="@+id/Answer2"
             android:layout_below="@+id/Answer1"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/man_made_vertical_margin">
+            android:layout_marginTop="@dimen/man_made_vertical_margin"
+            android:onClick="answer2"
+    >
     </TextView>
 
     <TextView
@@ -49,7 +53,9 @@
             android:id="@+id/Answer3"
             android:layout_below="@+id/Answer2"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/man_made_vertical_margin">
+            android:layout_marginTop="@dimen/man_made_vertical_margin"
+            android:onClick="answer3"
+    >
     </TextView>
 
     <TextView
@@ -59,7 +65,9 @@
             android:id="@+id/Answer4"
             android:layout_below="@+id/Answer3"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/man_made_vertical_margin">
+            android:layout_marginTop="@dimen/man_made_vertical_margin"
+            android:onClick="answer4"
+    >
     </TextView>
 
 </RelativeLayout>

@@ -20,6 +20,7 @@ public final class DatabaseReaderEntry {
         public static final String COLUMN_ANSWER3 = "ANSWER3";
         public static final String COLUMN_ANSWER4 = "ANSWER4";
         public static final String COLUMN_CORRECTANSWER = "CORRECT_ANSWER";
+        public static final String COLUMN_ALREADY_USED = "ALREADY_USED";
     }
 
     static final String SQL_CREATE_ENTRIES =
@@ -30,7 +31,8 @@ public final class DatabaseReaderEntry {
                     DatabaseEntry.COLUMN_ANSWER2 + " TEXT," +
                     DatabaseEntry.COLUMN_ANSWER3 + " TEXT," +
                     DatabaseEntry.COLUMN_ANSWER4 + " TEXT," +
-                    DatabaseEntry.COLUMN_CORRECTANSWER + " TEXT)";
+                    DatabaseEntry.COLUMN_ALREADY_USED + " INTEGER," +
+                    DatabaseEntry.COLUMN_CORRECTANSWER + " INTEGER)";
 
     static final String SQL_DELETE_ENTRIES =
             "DROP TABLE IF EXISTS " + DatabaseEntry.TABLE_NAME;
