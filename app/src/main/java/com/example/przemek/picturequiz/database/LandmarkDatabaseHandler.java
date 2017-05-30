@@ -47,6 +47,7 @@ public class LandmarkDatabaseHandler extends SQLiteOpenHelper
                 values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER4, "Polska");
                 values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_CORRECTANSWER, 1);
                 values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ALREADY_USED, 0);
+                values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_MAN_MADE, 1);
                 db.insert(DatabaseReaderEntry.DatabaseEntry.TABLE_NAME, null, values);
 
                 values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_PICTURE, "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Wawel2.jpg/1200px-Wawel2.jpg");
@@ -56,6 +57,7 @@ public class LandmarkDatabaseHandler extends SQLiteOpenHelper
                 values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER4, "Francja");
                 values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_CORRECTANSWER, 3);
                 values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ALREADY_USED, 0);
+                values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_MAN_MADE, 1);
                 db.insert(DatabaseReaderEntry.DatabaseEntry.TABLE_NAME, null, values);
             }
 
