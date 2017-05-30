@@ -14,4 +14,8 @@
     <string name="NoQuestions">There are no more questions</string>
     <string name="Return">Return to menu</string>
 
+
+    <!-- information -->
+    <string name="AppInfo">super apka stworzone przeze mnie</string>
+
 </resources>

@@ -20,12 +20,20 @@ import java.net.URL;
 public class AllLandmarksActivity extends AppCompatActivity {
 
     int correctAnswer=0;
+    int score=0;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
         showRandomRow();
+        score=getIntent().getExtras().getInt("score");
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 
     protected void showRandomRow ()
@@ -76,6 +84,8 @@ public class AllLandmarksActivity extends AppCompatActivity {
             TextView answer=(TextView)findViewById(R.id.Answer1);
             if (correctAnswer==1)
             {
+                score++;
+                intent.putExtra("score",0);
                 answer.setBackgroundResource(R.drawable.button_border_correct);
                 answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorGreen));
                 new Handler().postDelayed(new Runnable() {
@@ -86,6 +96,7 @@ public class AllLandmarksActivity extends AppCompatActivity {
             }
             else
             {
+                intent.putExtra("score",0);
                 answer.setBackgroundResource(R.drawable.button_border_incorrect);
                 answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorRed));
                 new Handler().postDelayed(new Runnable() {
@@ -101,6 +112,8 @@ public class AllLandmarksActivity extends AppCompatActivity {
             TextView answer=(TextView)findViewById(R.id.Answer1);
             if (correctAnswer==1)
             {
+                score++;
+                intent.putExtra("score",0);
                 answer.setBackgroundResource(R.drawable.button_border_correct);
                 answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorGreen));
                 new Handler().postDelayed(new Runnable() {
@@ -111,6 +124,7 @@ public class AllLandmarksActivity extends AppCompatActivity {
             }
             else
             {
+                intent.putExtra("score",0);
                 answer.setBackgroundResource(R.drawable.button_border_incorrect);
                 answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorRed));
                 new Handler().postDelayed(new Runnable() {
@@ -131,6 +145,8 @@ public class AllLandmarksActivity extends AppCompatActivity {
             TextView answer=(TextView)findViewById(R.id.Answer2);
             if (correctAnswer==2)
             {
+                score++;
+                intent.putExtra("score",0);
                 answer.setBackgroundResource(R.drawable.button_border_correct);
                 answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorGreen));
                 new Handler().postDelayed(new Runnable() {
@@ -141,6 +157,7 @@ public class AllLandmarksActivity extends AppCompatActivity {
             }
             else
             {
+                intent.putExtra("score",0);
                 answer.setBackgroundResource(R.drawable.button_border_incorrect);
                 answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorRed));
                 new Handler().postDelayed(new Runnable() {
@@ -156,6 +173,8 @@ public class AllLandmarksActivity extends AppCompatActivity {
             TextView answer=(TextView)findViewById(R.id.Answer2);
             if (correctAnswer==2)
             {
+                score++;
+                intent.putExtra("score",0);
                 answer.setBackgroundResource(R.drawable.button_border_correct);
                 answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorGreen));
                 new Handler().postDelayed(new Runnable() {
@@ -166,6 +185,7 @@ public class AllLandmarksActivity extends AppCompatActivity {
             }
             else
             {
+                intent.putExtra("score",0);
                 answer.setBackgroundResource(R.drawable.button_border_incorrect);
                 answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorRed));
                 new Handler().postDelayed(new Runnable() {
@@ -186,6 +206,8 @@ public class AllLandmarksActivity extends AppCompatActivity {
             TextView answer=(TextView)findViewById(R.id.Answer3);
             if (correctAnswer==3)
             {
+                score++;
+                intent.putExtra("score",0);
                 answer.setBackgroundResource(R.drawable.button_border_correct);
                 answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorGreen));
                 new Handler().postDelayed(new Runnable() {
@@ -196,6 +218,7 @@ public class AllLandmarksActivity extends AppCompatActivity {
             }
             else
             {
+                intent.putExtra("score",0);
                 answer.setBackgroundResource(R.drawable.button_border_incorrect);
                 answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorRed));
                 new Handler().postDelayed(new Runnable() {
@@ -211,6 +234,8 @@ public class AllLandmarksActivity extends AppCompatActivity {
             TextView answer=(TextView)findViewById(R.id.Answer3);
             if (correctAnswer==3)
             {
+                score++;
+                intent.putExtra("score",0);
                 answer.setBackgroundResource(R.drawable.button_border_correct);
                 answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorGreen));
                 new Handler().postDelayed(new Runnable() {
@@ -221,6 +246,7 @@ public class AllLandmarksActivity extends AppCompatActivity {
             }
             else
             {
+                intent.putExtra("score",0);
                 answer.setBackgroundResource(R.drawable.button_border_incorrect);
                 answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorRed));
                 new Handler().postDelayed(new Runnable() {
@@ -241,6 +267,8 @@ public class AllLandmarksActivity extends AppCompatActivity {
             TextView answer=(TextView)findViewById(R.id.Answer4);
             if (correctAnswer==4)
             {
+                score++;
+                intent.putExtra("score",0);
                 answer.setBackgroundResource(R.drawable.button_border_correct);
                 answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorGreen));
                 new Handler().postDelayed(new Runnable() {
@@ -251,6 +279,7 @@ public class AllLandmarksActivity extends AppCompatActivity {
             }
             else
             {
+                intent.putExtra("score",0);
                 answer.setBackgroundResource(R.drawable.button_border_incorrect);
                 answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorRed));
                 new Handler().postDelayed(new Runnable() {
@@ -266,6 +295,8 @@ public class AllLandmarksActivity extends AppCompatActivity {
             TextView answer=(TextView)findViewById(R.id.Answer4);
             if (correctAnswer==4)
             {
+                score++;
+                intent.putExtra("score",0);
                 answer.setBackgroundResource(R.drawable.button_border_correct);
                 answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorGreen));
                 new Handler().postDelayed(new Runnable() {
@@ -276,6 +307,7 @@ public class AllLandmarksActivity extends AppCompatActivity {
             }
             else
             {
+                intent.putExtra("score",0);
                 answer.setBackgroundResource(R.drawable.button_border_incorrect);
                 answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorRed));
                 new Handler().postDelayed(new Runnable() {

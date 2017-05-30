@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         LandmarkDatabaseHandler db = new LandmarkDatabaseHandler(getApplicationContext());
         db.refresh();
         Intent intent = new Intent(this, ManMadeOnlyActivity.class);
+        intent.putExtra("score",0);
         startActivity(intent);
     }
 
@@ -50,6 +51,16 @@ public class MainActivity extends AppCompatActivity {
         LandmarkDatabaseHandler db = new LandmarkDatabaseHandler(getApplicationContext());
         db.refresh();
         Intent intent = new Intent(this, AllLandmarksActivity.class);
+        intent.putExtra("score",0);
         startActivity(intent);
     }
+
+    public void information (View view)
+    {
+        Intent intent = new Intent(this, InformationActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed() {}
 }

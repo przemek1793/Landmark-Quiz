@@ -14,26 +14,19 @@
 
         <TextView
                 style="@style/RelativeLayoutButtonStyle"
-                android:id="@+id/no_questions_announcement"
-                android:text="@string/NoQuestions"
+                android:id="@+id/information"
+                android:text="@string/AppInfo"
                 android:layout_marginBottom="@dimen/Vertical_margin"
                 android:layout_marginTop="@dimen/Vertical_margin"
-                />
-
-        <Button
-                android:id="@+id/HighscoreButton"
-                android:layout_below="@+id/no_questions_announcement"
-                style="@style/RelativeLayoutButtonStyle"
-                android:text="@string/Highscore"
-                android:layout_marginBottom="@dimen/Vertical_margin"
         />
 
         <Button
                 android:id="@+id/ReturnButton"
-                android:layout_below="@+id/HighscoreButton"
+                android:layout_below="@+id/information"
                 style="@style/RelativeLayoutButtonStyle"
                 android:text="@string/Return"
                 android:onClick="returnToMenu"
+                android:layout_marginTop="@dimen/Vertical_margin"
         />
 
     </RelativeLayout>

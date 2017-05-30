@@ -5,18 +5,17 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import com.example.przemek.picturequiz.R;
-import com.example.przemek.picturequiz.database.LandmarkDatabaseHandler;
 
 /**
- * Created by Przemek on 29.05.2017.
+ * Created by Przemek on 30.05.2017.
  */
-public class NoQuestionsActivity extends AppCompatActivity
+public class InformationActivity extends AppCompatActivity
 {
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_no_questions);
+        setContentView(R.layout.activity_info);
     }
 
     public void returnToMenu (View view)
