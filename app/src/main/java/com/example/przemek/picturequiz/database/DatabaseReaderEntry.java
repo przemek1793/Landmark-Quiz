@@ -24,7 +24,7 @@ public final class DatabaseReaderEntry {
     }
 
     static final String SQL_CREATE_ENTRIES =
-            "CREATE TABLE " + DatabaseEntry.TABLE_NAME + " (" +
+            "CREATE TABLE IF NOT EXISTS " + DatabaseEntry.TABLE_NAME + " (" +
                     DatabaseEntry.COLUMN_ID + " INTEGER PRIMARY KEY," +
                     DatabaseEntry.COLUMN_PICTURE + " TEXT," +
                     DatabaseEntry.COLUMN_ANSWER1 + " TEXT," +

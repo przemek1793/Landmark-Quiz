@@ -30,24 +30,36 @@ public class LandmarkDatabaseHandler extends SQLiteOpenHelper
     {
         db.execSQL(SQL_CREATE_ENTRIES);
 
-        ContentValues values = new ContentValues();
-        values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_PICTURE, "http://i1-news.softpedia-static.com/images/news2/Thief-Steals-the-Keys-to-the-Tower-of-London-on-Guy-Fawkes-Night-2.jpg?1352724076");
-        values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER1, "Anglia");
-        values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER2, "Francja");
-        values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER3, "Hiszpania");
-        values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER4, "Polska");
-        values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_CORRECTANSWER, 1);
-        values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ALREADY_USED, 0);
-        db.insert(DatabaseReaderEntry.DatabaseEntry.TABLE_NAME, null, values);
+        //check whether database is empty
+        Cursor cursor = db.rawQuery("SELECT COUNT(*) FROM " +DatabaseReaderEntry.DatabaseEntry.TABLE_NAME, null);
+        if(cursor != null)
+        {
+            cursor.moveToFirst();
+            int count = cursor.getInt(0);
 
-        values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_PICTURE, "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Wawel2.jpg/1200px-Wawel2.jpg");
-        values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER1, "Hiszpania");
-        values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER2, "Albania");
-        values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER3, "Polska");
-        values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER4, "Francja");
-        values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_CORRECTANSWER, 3);
-        values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ALREADY_USED, 0);
-        db.insert(DatabaseReaderEntry.DatabaseEntry.TABLE_NAME, null, values);
+            //if it's empty populate table
+            if(!(count > 0)){
+                ContentValues values = new ContentValues();
+                values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_PICTURE, "http://i1-news.softpedia-static.com/images/news2/Thief-Steals-the-Keys-to-the-Tower-of-London-on-Guy-Fawkes-Night-2.jpg?1352724076");
+                values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER1, "Anglia");
+                values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER2, "Francja");
+                values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER3, "Hiszpania");
+                values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER4, "Polska");
+                values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_CORRECTANSWER, 1);
+                values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ALREADY_USED, 0);
+                db.insert(DatabaseReaderEntry.DatabaseEntry.TABLE_NAME, null, values);
+
+                values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_PICTURE, "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Wawel2.jpg/1200px-Wawel2.jpg");
+                values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER1, "Hiszpania");
+                values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER2, "Albania");
+                values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER3, "Polska");
+                values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER4, "Francja");
+                values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_CORRECTANSWER, 3);
+                values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ALREADY_USED, 0);
+                db.insert(DatabaseReaderEntry.DatabaseEntry.TABLE_NAME, null, values);
+            }
+
+        }
     }
 
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -57,7 +69,8 @@ public class LandmarkDatabaseHandler extends SQLiteOpenHelper
 
     public void refresh() {
         SQLiteDatabase db  = this.getReadableDatabase();
-        db.execSQL(SQL_DELETE_ENTRIES);
+        String strSQL = "UPDATE "+ DatabaseReaderEntry.DatabaseEntry.TABLE_NAME+" SET "+DatabaseReaderEntry.DatabaseEntry.COLUMN_ALREADY_USED+" = 0;";
+        db.execSQL(strSQL);
         onCreate(db);
     }
 
