@@ -22,11 +22,12 @@
 
         <Button
                 android:id="@+id/ReturnButton"
-                android:layout_below="@+id/information"
                 style="@style/RelativeLayoutButtonStyle"
                 android:text="@string/Return"
                 android:onClick="returnToMenu"
                 android:layout_marginTop="@dimen/Vertical_margin"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="@dimen/Vertical_margin"
         />
 
     </RelativeLayout>

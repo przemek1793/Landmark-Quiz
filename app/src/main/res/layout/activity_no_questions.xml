@@ -20,9 +20,16 @@
                 android:layout_marginTop="@dimen/Vertical_margin"
                 />
 
+    <TextView
+            style="@style/RelativeLayoutButtonStyle"
+            android:id="@+id/final_score"
+            android:layout_marginBottom="@dimen/Vertical_margin"
+            android:layout_below="@+id/no_questions_announcement"
+    />
+
         <Button
                 android:id="@+id/HighscoreButton"
-                android:layout_below="@+id/no_questions_announcement"
+                android:layout_below="@+id/final_score"
                 style="@style/RelativeLayoutButtonStyle"
                 android:text="@string/Highscore"
                 android:layout_marginBottom="@dimen/Vertical_margin"
