@@ -51,6 +51,7 @@
                     android:text="@string/Mode2"
                     android:layout_marginBottom="@dimen/Vertical_margin"
                     android:layout_marginTop="@dimen/Vertical_margin"
+                    android:onClick="allLandmarks"
             />
         </LinearLayout>
 

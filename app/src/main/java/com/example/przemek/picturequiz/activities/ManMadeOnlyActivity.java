@@ -1,13 +1,8 @@
 package com.example.przemek.picturequiz.activities;
 
-import android.content.ContentValues;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.support.v4.content.ContextCompat;
@@ -17,16 +12,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.example.przemek.picturequiz.R;
-import com.example.przemek.picturequiz.database.DatabaseReaderEntry;
 import com.example.przemek.picturequiz.database.LandmarkDatabaseHandler;
-import org.xml.sax.InputSource;
-import org.xml.sax.XMLReader;
 
-import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
-import java.io.IOException;
 import java.io.InputStream;
-import java.net.MalformedURLException;
 import java.net.URL;
 
 
@@ -42,15 +30,15 @@ public class ManMadeOnlyActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_man_made_only);
-        showRandomRow();
+        setContentView(R.layout.activity_quiz);
+        showRandomManMAdeRow();
     }
 
-    protected void showRandomRow ()
+    protected void showRandomManMAdeRow ()
     {
         LandmarkDatabaseHandler db = new LandmarkDatabaseHandler(getApplicationContext());
-        String row[]=db.getRandomRow();
-        correctAnswer=Integer.parseInt(row[7]);
+        String row[]=db.getRandomManMAdeRow();
+        correctAnswer=Integer.parseInt(row[8]);
         new GetImageFromURL().execute(row[1]);
         TextView answer1=(TextView)findViewById(R.id.Answer1);
         answer1.setText(row[2]);
@@ -88,7 +76,7 @@ public class ManMadeOnlyActivity extends AppCompatActivity {
     public void answer1 (View view)
     {
         LandmarkDatabaseHandler db = new LandmarkDatabaseHandler(getApplicationContext());
-        if (db.checkForUnusedQuestions())
+        if (db.checkForUnusedManMAdeQuestions())
         {
             final Intent intent = new Intent(this, ManMadeOnlyActivity.class);
             TextView answer=(TextView)findViewById(R.id.Answer1);
@@ -143,7 +131,7 @@ public class ManMadeOnlyActivity extends AppCompatActivity {
     public void answer2 (View view)
     {
         LandmarkDatabaseHandler db = new LandmarkDatabaseHandler(getApplicationContext());
-        if (db.checkForUnusedQuestions())
+        if (db.checkForUnusedManMAdeQuestions())
         {
             final Intent intent = new Intent(this, ManMadeOnlyActivity.class);
             TextView answer=(TextView)findViewById(R.id.Answer2);
@@ -198,7 +186,7 @@ public class ManMadeOnlyActivity extends AppCompatActivity {
     public void answer3 (View view)
     {
         LandmarkDatabaseHandler db = new LandmarkDatabaseHandler(getApplicationContext());
-        if (db.checkForUnusedQuestions())
+        if (db.checkForUnusedManMAdeQuestions())
         {
             final Intent intent = new Intent(this, ManMadeOnlyActivity.class);
             TextView answer=(TextView)findViewById(R.id.Answer3);
@@ -253,7 +241,7 @@ public class ManMadeOnlyActivity extends AppCompatActivity {
     public void answer4 (View view)
     {
         LandmarkDatabaseHandler db = new LandmarkDatabaseHandler(getApplicationContext());
-        if (db.checkForUnusedQuestions())
+        if (db.checkForUnusedManMAdeQuestions())
         {
             final Intent intent = new Intent(this, ManMadeOnlyActivity.class);
             TextView answer=(TextView)findViewById(R.id.Answer4);

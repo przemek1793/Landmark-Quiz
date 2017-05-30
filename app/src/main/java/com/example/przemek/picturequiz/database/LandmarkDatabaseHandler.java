@@ -59,6 +59,16 @@ public class LandmarkDatabaseHandler extends SQLiteOpenHelper
                 values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ALREADY_USED, 0);
                 values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_MAN_MADE, 1);
                 db.insert(DatabaseReaderEntry.DatabaseEntry.TABLE_NAME, null, values);
+
+                values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_PICTURE, "https://www.niagarafallsstatepark.com/~/media/parks/niagara-falls/homepage/banner-niagara1.jpg");
+                values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER1, "Peru");
+                values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER2, "Brazylia");
+                values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER3, "Polska");
+                values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ANSWER4, "USA");
+                values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_CORRECTANSWER, 4);
+                values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_ALREADY_USED, 0);
+                values.put(DatabaseReaderEntry.DatabaseEntry.COLUMN_MAN_MADE, 0);
+                db.insert(DatabaseReaderEntry.DatabaseEntry.TABLE_NAME, null, values);
             }
 
         }
@@ -96,6 +106,22 @@ public class LandmarkDatabaseHandler extends SQLiteOpenHelper
         return answer;
     }
 
+    public String[] getRandomManMAdeRow()
+    {
+        String selectQuery = "SELECT * FROM " + DatabaseReaderEntry.DatabaseEntry.TABLE_NAME + " WHERE ALREADY_USED=0 AND "+DatabaseReaderEntry.DatabaseEntry.COLUMN_MAN_MADE+"=1 ORDER BY RANDOM();"; // select random row from database
+        SQLiteDatabase db  = this.getReadableDatabase();
+        Cursor cursor      = db.rawQuery(selectQuery, null);
+        String [] answer= new String[cursor.getColumnCount()];
+        if(cursor.moveToFirst()){
+            for (int j=0;j<cursor.getColumnCount();j++)
+            {
+                answer[j]=cursor.getString(j);
+            }
+        }
+        cursor.close();
+        return answer;
+    }
+
     public void markAsUsed (String id)
     {
         String strSQL = "UPDATE "+ DatabaseReaderEntry.DatabaseEntry.TABLE_NAME+" SET "+DatabaseReaderEntry.DatabaseEntry.COLUMN_ALREADY_USED+" = 1 where "
@@ -106,6 +132,16 @@ public class LandmarkDatabaseHandler extends SQLiteOpenHelper
     public Boolean checkForUnusedQuestions ()
     {
         String selectQuery = "SELECT * FROM " + DatabaseReaderEntry.DatabaseEntry.TABLE_NAME + " WHERE ALREADY_USED=0 ORDER BY RANDOM();";
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        int cnt = cursor.getCount();
+        cursor.close();
+        return cnt>0;
+    }
+
+    public Boolean checkForUnusedManMAdeQuestions ()
+    {
+        String selectQuery = "SELECT * FROM " + DatabaseReaderEntry.DatabaseEntry.TABLE_NAME + " WHERE ALREADY_USED=0 AND "+DatabaseReaderEntry.DatabaseEntry.COLUMN_MAN_MADE+"=1 ORDER BY RANDOM();";
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
         int cnt = cursor.getCount();

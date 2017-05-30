@@ -44,4 +44,12 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ManMadeOnlyActivity.class);
         startActivity(intent);
     }
+
+    public void allLandmarks (View view)
+    {
+        LandmarkDatabaseHandler db = new LandmarkDatabaseHandler(getApplicationContext());
+        db.refresh();
+        Intent intent = new Intent(this, AllLandmarksActivity.class);
+        startActivity(intent);
+    }
 }
