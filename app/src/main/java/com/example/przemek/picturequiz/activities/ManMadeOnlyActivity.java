@@ -34,6 +34,8 @@ public class ManMadeOnlyActivity extends AppCompatActivity {
         setContentView(R.layout.activity_quiz);
         showRandomManMAdeRow();
         score=getIntent().getExtras().getInt("score");
+        TextView scoretext=(TextView)findViewById(R.id.score);
+        scoretext.setText(String.valueOf(score));
     }
 
     @Override
@@ -91,7 +93,9 @@ public class ManMadeOnlyActivity extends AppCompatActivity {
             if (correctAnswer==1)
             {
                 score++;
-                intent.putExtra("score",0);
+                intent.putExtra("score",score);
+                TextView scoretext=(TextView)findViewById(R.id.score);
+                scoretext.setText(String.valueOf(score));
                 answer.setBackgroundResource(R.drawable.button_border_correct);
                 answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorGreen));
                 new Handler().postDelayed(new Runnable() {
@@ -102,7 +106,7 @@ public class ManMadeOnlyActivity extends AppCompatActivity {
             }
             else
             {
-                intent.putExtra("score",0);
+                intent.putExtra("score",score);
                 answer.setBackgroundResource(R.drawable.button_border_incorrect);
                 answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorRed));
                 new Handler().postDelayed(new Runnable() {
@@ -119,7 +123,9 @@ public class ManMadeOnlyActivity extends AppCompatActivity {
             if (correctAnswer==1)
             {
                 score++;
-                intent.putExtra("score",0);
+                intent.putExtra("score",score);
+                TextView scoretext=(TextView)findViewById(R.id.score);
+                scoretext.setText(String.valueOf(score));
                 answer.setBackgroundResource(R.drawable.button_border_correct);
                 answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorGreen));
                 new Handler().postDelayed(new Runnable() {
@@ -130,7 +136,7 @@ public class ManMadeOnlyActivity extends AppCompatActivity {
             }
             else
             {
-                intent.putExtra("score",0);
+                intent.putExtra("score",score);
                 answer.setBackgroundResource(R.drawable.button_border_incorrect);
                 answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorRed));
                 new Handler().postDelayed(new Runnable() {
@@ -152,7 +158,9 @@ public class ManMadeOnlyActivity extends AppCompatActivity {
             if (correctAnswer==2)
             {
                 score++;
-                intent.putExtra("score",0);
+                intent.putExtra("score",score);
+                TextView scoretext=(TextView)findViewById(R.id.score);
+                scoretext.setText(String.valueOf(score));
                 answer.setBackgroundResource(R.drawable.button_border_correct);
                 answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorGreen));
                 new Handler().postDelayed(new Runnable() {
@@ -163,7 +171,7 @@ public class ManMadeOnlyActivity extends AppCompatActivity {
             }
             else
             {
-                intent.putExtra("score",0);
+                intent.putExtra("score",score);
                 answer.setBackgroundResource(R.drawable.button_border_incorrect);
                 answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorRed));
                 new Handler().postDelayed(new Runnable() {
@@ -180,7 +188,9 @@ public class ManMadeOnlyActivity extends AppCompatActivity {
             if (correctAnswer==2)
             {
                 score++;
-                intent.putExtra("score",0);
+                intent.putExtra("score",score);
+                TextView scoretext=(TextView)findViewById(R.id.score);
+                scoretext.setText(String.valueOf(score));
                 answer.setBackgroundResource(R.drawable.button_border_correct);
                 answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorGreen));
                 new Handler().postDelayed(new Runnable() {
@@ -191,7 +201,7 @@ public class ManMadeOnlyActivity extends AppCompatActivity {
             }
             else
             {
-                intent.putExtra("score",0);
+                intent.putExtra("score",score);
                 answer.setBackgroundResource(R.drawable.button_border_incorrect);
                 answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorRed));
                 new Handler().postDelayed(new Runnable() {
@@ -213,7 +223,9 @@ public class ManMadeOnlyActivity extends AppCompatActivity {
             if (correctAnswer==3)
             {
                 score++;
-                intent.putExtra("score",0);
+                intent.putExtra("score",score);
+                TextView scoretext=(TextView)findViewById(R.id.score);
+                scoretext.setText(String.valueOf(score));
                 answer.setBackgroundResource(R.drawable.button_border_correct);
                 answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorGreen));
                 new Handler().postDelayed(new Runnable() {
@@ -224,7 +236,7 @@ public class ManMadeOnlyActivity extends AppCompatActivity {
             }
             else
             {
-                intent.putExtra("score",0);
+                intent.putExtra("score",score);
                 answer.setBackgroundResource(R.drawable.button_border_incorrect);
                 answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorRed));
                 new Handler().postDelayed(new Runnable() {
@@ -241,7 +253,9 @@ public class ManMadeOnlyActivity extends AppCompatActivity {
             if (correctAnswer==3)
             {
                 score++;
-                intent.putExtra("score",0);
+                intent.putExtra("score",score);
+                TextView scoretext=(TextView)findViewById(R.id.score);
+                scoretext.setText(String.valueOf(score));
                 answer.setBackgroundResource(R.drawable.button_border_correct);
                 answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorGreen));
                 new Handler().postDelayed(new Runnable() {
@@ -252,7 +266,7 @@ public class ManMadeOnlyActivity extends AppCompatActivity {
             }
             else
             {
-                intent.putExtra("score",0);
+                intent.putExtra("score",score);
                 answer.setBackgroundResource(R.drawable.button_border_incorrect);
                 answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorRed));
                 new Handler().postDelayed(new Runnable() {
@@ -274,7 +288,9 @@ public class ManMadeOnlyActivity extends AppCompatActivity {
             if (correctAnswer==4)
             {
                 score++;
-                intent.putExtra("score",0);
+                intent.putExtra("score",score);
+                TextView scoretext=(TextView)findViewById(R.id.score);
+                scoretext.setText(String.valueOf(score));
                 answer.setBackgroundResource(R.drawable.button_border_correct);
                 answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorGreen));
                 new Handler().postDelayed(new Runnable() {
@@ -285,7 +301,7 @@ public class ManMadeOnlyActivity extends AppCompatActivity {
             }
             else
             {
-                intent.putExtra("score",0);
+                intent.putExtra("score",score);
                 answer.setBackgroundResource(R.drawable.button_border_incorrect);
                 answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorRed));
                 new Handler().postDelayed(new Runnable() {
@@ -302,7 +318,9 @@ public class ManMadeOnlyActivity extends AppCompatActivity {
             if (correctAnswer==4)
             {
                 score++;
-                intent.putExtra("score",0);
+                intent.putExtra("score",score);
+                TextView scoretext=(TextView)findViewById(R.id.score);
+                scoretext.setText(String.valueOf(score));
                 answer.setBackgroundResource(R.drawable.button_border_correct);
                 answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorGreen));
                 new Handler().postDelayed(new Runnable() {
@@ -313,7 +331,7 @@ public class ManMadeOnlyActivity extends AppCompatActivity {
             }
             else
             {
-                intent.putExtra("score",0);
+                intent.putExtra("score",score);
                 answer.setBackgroundResource(R.drawable.button_border_incorrect);
                 answer.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorRed));
                 new Handler().postDelayed(new Runnable() {

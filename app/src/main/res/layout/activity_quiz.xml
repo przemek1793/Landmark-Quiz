@@ -70,4 +70,14 @@
     >
     </TextView>
 
+    <TextView
+            android:layout_width="wrap_content"
+            style="@style/GeneralTextStyle"
+            android:layout_height="wrap_content"
+            android:id="@+id/score"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+    >
+    </TextView>
+
 </RelativeLayout>
