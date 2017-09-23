@@ -21,6 +21,7 @@ public class AllLandmarksActivity extends AppCompatActivity {
 
     int correctAnswer=0;
     int score=0;
+    int delay=500;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -96,7 +97,7 @@ public class AllLandmarksActivity extends AppCompatActivity {
                     public void run() {
                         startActivity(intent);
                     }
-                }, 1000);
+                }, delay);
             }
             else
             {
@@ -107,7 +108,7 @@ public class AllLandmarksActivity extends AppCompatActivity {
                     public void run() {
                         startActivity(intent);
                     }
-                }, 1000);
+                }, delay);
             }
         }
         else
@@ -126,7 +127,7 @@ public class AllLandmarksActivity extends AppCompatActivity {
                     public void run() {
                         startActivity(intent);
                     }
-                }, 1000);
+                }, delay);
             }
             else
             {
@@ -137,7 +138,7 @@ public class AllLandmarksActivity extends AppCompatActivity {
                     public void run() {
                         startActivity(intent);
                     }
-                }, 1000);
+                }, delay);
             }
         }
     }
@@ -161,7 +162,7 @@ public class AllLandmarksActivity extends AppCompatActivity {
                     public void run() {
                         startActivity(intent);
                     }
-                }, 1000);
+                }, delay);
             }
             else
             {
@@ -172,7 +173,7 @@ public class AllLandmarksActivity extends AppCompatActivity {
                     public void run() {
                         startActivity(intent);
                     }
-                }, 1000);
+                }, delay);
             }
         }
         else
@@ -191,7 +192,7 @@ public class AllLandmarksActivity extends AppCompatActivity {
                     public void run() {
                         startActivity(intent);
                     }
-                }, 1000);
+                }, delay);
             }
             else
             {
@@ -202,7 +203,7 @@ public class AllLandmarksActivity extends AppCompatActivity {
                     public void run() {
                         startActivity(intent);
                     }
-                }, 1000);
+                }, delay);
             }
         }
     }
@@ -226,7 +227,7 @@ public class AllLandmarksActivity extends AppCompatActivity {
                     public void run() {
                         startActivity(intent);
                     }
-                }, 1000);
+                }, delay);
             }
             else
             {
@@ -237,7 +238,7 @@ public class AllLandmarksActivity extends AppCompatActivity {
                     public void run() {
                         startActivity(intent);
                     }
-                }, 1000);
+                }, delay);
             }
         }
         else
@@ -256,7 +257,7 @@ public class AllLandmarksActivity extends AppCompatActivity {
                     public void run() {
                         startActivity(intent);
                     }
-                }, 1000);
+                }, delay);
             }
             else
             {
@@ -267,7 +268,7 @@ public class AllLandmarksActivity extends AppCompatActivity {
                     public void run() {
                         startActivity(intent);
                     }
-                }, 1000);
+                }, delay);
             }
         }
     }
@@ -291,7 +292,7 @@ public class AllLandmarksActivity extends AppCompatActivity {
                     public void run() {
                         startActivity(intent);
                     }
-                }, 1000);
+                }, delay);
             }
             else
             {
@@ -302,7 +303,7 @@ public class AllLandmarksActivity extends AppCompatActivity {
                     public void run() {
                         startActivity(intent);
                     }
-                }, 1000);
+                }, delay);
             }
         }
         else
@@ -321,7 +322,7 @@ public class AllLandmarksActivity extends AppCompatActivity {
                     public void run() {
                         startActivity(intent);
                     }
-                }, 1000);
+                }, delay);
             }
             else
             {
@@ -332,7 +333,7 @@ public class AllLandmarksActivity extends AppCompatActivity {
                     public void run() {
                         startActivity(intent);
                     }
-                }, 1000);
+                }, delay);
             }
         }
     }
